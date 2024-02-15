@@ -1,0 +1,91 @@
+Главная страница:
+
+Обзор курсов и программ обучения.
+Возможность поиска курсов по различным критериям (например, по теме, уровню сложности, стоимости и т.д.).
+Регистрация/Авторизация:
+
+Форма регистрации для новых пользователей.
+Форма авторизации для зарегистрированных пользователей.
+Восстановление пароля.
+Личный кабинет пользователя:
+
+Профиль пользователя (возможность изменения личной информации, пароля и т.д.).
+Список купленных курсов.
+Прогресс обучения (если применимо).
+Возможность общения с преподавателями и другими участниками (форумы, чаты и т.д.).
+Возможность оценки и отзывов о курсах.
+Управление подписками и уведомлениями.
+Личный кабинет администратора:
+
+Управление пользователями (просмотр, редактирование, блокировка, удаление).
+Управление курсами (добавление, редактирование, удаление).
+Мониторинг прогресса пользователей.
+Аналитика (статистика посещаемости, активности пользователей и т.д.).
+Управление финансами (если применимо, например, просмотр статистики продаж, выставление счетов и т.д.).
+Страницы курсов:
+
+Описание курса.
+Расписание занятий.
+Цена и возможность оплаты.
+Функционал для начала обучения (если он проводится онлайн).
+Форма для обратной связи с преподавателем.
+Блог/Новости:
+
+Статьи о темах образования.
+Анонсы новых курсов.
+Полезные советы и рекомендации.
+Страница контактов:
+
+Контактная информация для связи с администрацией сайта.
+FAQ (Часто задаваемые вопросы):
+
+Ответы на типичные вопросы пользователей.
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'user') DEFAULT 'user',
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    instructor VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL DEFAULT 0,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('active', 'inactive') DEFAULT 'active'
+);
+
+CREATE TABLE lessons (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    course_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    sequence INT NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+);
+
+CREATE TABLE enrollments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+);
+
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    lesson_id INT NOT NULL,
+    comment TEXT NOT NULL,
+    comment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+    FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON DELETE CASCADE
+);

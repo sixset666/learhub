@@ -12,9 +12,9 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="index.php">
-                <img src="images/logo-color.svg" width="160" height="120" alt="" class="header-logo">
+                <img src="images/LearnHub-logos_black.png" width="180" height="50" alt="" class="header-logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

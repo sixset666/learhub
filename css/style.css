@@ -199,6 +199,11 @@ padding: 0;
     transform: translateY(0); /* Конечное смещение */
 }
 
+.clients__item.show {
+    opacity: 1;
+    transform: translateX(0); /* Конечное смещение */
+}
+
 .container-contacts{
     max-width: 1500px;
     margin: 0 auto;
@@ -254,4 +259,16 @@ padding: 0;
     align-items: center;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.clients-list{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
 }

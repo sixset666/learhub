@@ -1,4 +1,257 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
 .card-img-top{
     max-width: 100px;
     min-height: 100px;
+}
+
+header{
+    border-bottom:1px solid #29a6bc;
+    padding: 0 30px;
+}
+
+.navbar{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+section{
+    border-bottom:1px solid #29a6bc;
+    max-width: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+
+
+.carousel-item img{
+    height: 700px;
+}
+
+.container{
+    max-width: 1500px;
+}
+
+.carousel-caption{
+    background-color: #29a6bcae;
+    padding: 15px;
+    max-width: 30%;
+    height: 100%;
+    left: 70%;
+    right: 0;
+    bottom: 0;
+    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+}
+
+.carousel-caption h5{
+    position: absolute;
+    top: 48%;
+    left: 20%;
+}
+
+.carousel-control-prev{
+    z-index: 2;
+}
+
+.carousel{
+    box-shadow: 0 0 20px 4px #29a6bc4f;
+}
+
+   .courses-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.courses__item:nth-child(2n){
+    justify-content: flex-end;
+}
+
+.courses__item{
+    display: flex;
+    opacity: 0;
+}
+
+.courses__item:not(:last-child){
+    margin-bottom: 80px;    
+}
+
+.content{
+    max-width: 1200px;
+    display: flex;
+    max-height: 400px;
+    box-shadow: 0 0 20px 4px #29a6bc4f;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.content:hover{
+    box-shadow: 0 0 20px 10px #29a6bc4f;
+}
+
+
+
+.courses-img{
+    max-width: 50%;
+    margin-right: 30px;
+    border-right: 3px solid #29a6bc;
+    padding-right: 40px;
+}
+
+.section-title{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 38px;
+}
+
+.price-wrapper{
+    display: flex;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item-price{
+    margin-right: 30px;
+    border-bottom: 1px solid #1f7484;
+}
+
+.courses__item {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.5s ease;
+}
+
+.courses__item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.container-services{
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.services-list{
+    list-style: none;
+padding: 0;
+}
+
+.services-item-title{
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-top: 40px;
+    background-size: 30px 30px;
+}
+
+.services__item:not(:last-child){
+    margin-bottom: 80px;
+}
+
+.services__item{
+    padding: 20px;
+    box-shadow: 0 0 20px 4px #29a6bc4f;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    border-radius: 10px;
+}
+
+.services__item1{
+    background-image: url("../images/1-square-fill.svg");
+}
+
+.services__item2{
+    background-image: url("../images/2-square-fill.svg");
+}
+
+.services__item3{
+    background-image: url("../images/3-square-fill.svg");
+}
+
+.services__item4{
+    background-image: url("../images/4-square-fill.svg");
+}
+
+.services__item5{
+    background-image: url("../images/5-square-fill.svg");
+}
+
+.services__item6{
+    background-image: url("../images/6-square-fill.svg");
+}
+
+.services__item {
+    opacity: 0;
+    transform: translateX(-150px); /* Начальное смещение вверх */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.services__item.show {
+    opacity: 1;
+    transform: translateY(0); /* Конечное смещение */
+}
+
+.container-contacts{
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts-list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    padding-left: 60px;
+}
+
+.contacts__item:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.contacts-link{
+    text-decoration: none;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.contacts-link:hover{
+    color: #a2f1ff;
+    text-decoration: none;
+}
+
+.phone{
+    background-image: url("../images/phone.svg");
+}
+
+.mail{
+    background-image: url("../images/mail.svg");
+}
+
+.vk{
+    background-image: url("../images/messenger.svg");
+}
+
+.contacts-text{
+    background-color: #29a6bc;
+    min-height: 450px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
